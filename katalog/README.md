@@ -1,7 +1,7 @@
 Link menuju aplikasi heroku: [katalog](https://pbp-katalog.herokuapp.com/katalog/)
 
 ### Bagan request client beserta responnya
-![Bagan request client beserta responnya](bagan.png)
+![Bagan request client beserta responnya](bagan.png)<br>
 Permintaan _(request)_ dari pengguna _(user)_ akan diteruskan ke urls.py untuk dilakukan proses _url routing_ atau pemetaan. Selanjutnya, permintaan tersebut diteruskan ke _view.py_ untuk diproses. Apabila 
 permintaan tersebut membutuhkan data dari _database_, maka _views.py_ akan memanggil _query_ ke _models.py_ yang akan menyebabkan _database_ mengembalikan data yang dibutuhkan ke _views.py_. Setelah itu, 
 akan dilakukan pemilihan template pada berkas html yang sesuai dengan permintaan untuk ditampilkan sebagai bentuk respon dari permintaan yang diteruskan oleh pengguna.

@@ -36,7 +36,7 @@ Data delivery diperlukan ketika kita ingin memindahkan data dari satu stack ke s
 `
 6. Menjalankan perintah `python manage.py makemigrations` untuk mempersiapkan migrasi skema model ke dalam database Django lokal
 7. Menjalankan perintah `python manage.py migrate` untuk menerapkan skema model yang telah dibuat ke dalam database Django lokal
-8. Membuat folder bernama fixtures lalu membuat sebuah berkas bernama `initial_mywatchlist_data.json` yang berisi kode berikut.
+8. Membuat folder bernama fixtures lalu membuat sebuah berkas bernama initial_mywatchlist_data.json yang berisi kode berikut.
 `[
     {
         "model":"mywatchlist.watchlistmovie",
@@ -149,8 +149,7 @@ Data delivery diperlukan ketika kita ingin memindahkan data dari satu stack ke s
         }
     }
  
-]
-`
+]`
 9. Menjalankan perintah `python manage.py loaddata initial_mywatchlist_data.json` untuk memasukkan data tersebut ke dalam database Django lokal.
 10. Mengimpor models yang sudah dibuat sebelumnya serta mengimpor HttpResponse dan Serializer ke file views.py dengan menambahkan potongan kode berikut
 `from django.shortcuts import render

@@ -235,8 +235,9 @@ urlpatterns = [
 
 ## Postman
 #### http://localhost:8000/mywatchlist/html
-![Screenshot Postman HTML](/postman/html.png)<br>
+![Screenshot Postman HTML](https://github.com/monicaoktviona/django-assignment/blob/main/mywatchlist/postman/html.png)<br>
 #### http://localhost:8000/mywatchlist/xml
-![Screenshot Postman XML](/postman/xml.png)<br>
+![Screenshot Postman XML](https://github.com/monicaoktviona/django-assignment/blob/main/mywatchlist/postman/xml.png)<br>
 #### http://localhost:8000/mywatchlist/json
-![Screenshot Postman JSON](/postman/json.png)<br>
+![Screenshot Postman JSON](https://github.com/monicaoktviona/django-assignment/blob/main/mywatchlist/postman/json.png)<br>
+

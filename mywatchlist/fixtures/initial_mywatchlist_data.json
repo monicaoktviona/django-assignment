@@ -1,0 +1,113 @@
+[
+    {
+        "model":"mywatchlist.watchlistmovie",
+        "pk":1,
+        "fields":{
+            "watched":"True",
+            "title":"Little Women",
+            "rating": "5",
+            "release_date":"December 7, 2019",
+            "review":"Such a comfort movie for me."
+        }
+},
+{
+        "model":"mywatchlist.watchlistmovie",
+        "pk":2,
+        "fields":{
+            "watched":"True",
+            "title":"Extreme Job",
+            "rating": "4",
+            "release_date":"February 20, 2019",
+            "review":"So entertaining!"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistmovie",
+        "pk":3,
+        "fields":{
+            "watched":"True",
+            "title":"Knives Out",
+            "rating": "5",
+            "release_date":"November 27, 2019",
+            "review":"A cleverly-constructed movie."
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistmovie",
+        "pk":4,
+        "fields":{
+            "watched":"True",
+            "title":"The Invisible Guest",
+            "rating": "4",
+            "release_date":"January 6, 2017",
+            "review":"Full of plot twists. A good movie actually."
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistmovie",
+        "pk":5,
+        "fields":{
+            "watched":"True",
+            "title":"Gone Girl",
+            "rating": "4",
+            "release_date":"October 3, 2014",
+            "review":"This movie gives me the same vibe as Simple Favor since I watched Simple Favor earlier."
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistmovie",
+        "pk":6,
+        "fields":{
+            "watched":"True",
+            "title":"Interstellar",
+            "rating": "5",
+            "release_date":"November 6, 2014",
+            "review":"The very first Christopher Nolan's movie that i watched and i really love it."
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistmovie",
+        "pk":7,
+        "fields":{
+            "watched":"True",
+            "title":"The Grand Budapest Hotel",
+            "rating": "3",
+            "release_date":"March 6, 2014",
+            "review":"A movie with the most beautiful cinematography i've ever watched. I love every single frame."
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistmovie",
+        "pk":8,
+        "fields":{
+            "watched":"False",
+            "title":"Inception",
+            "rating": "0",
+            "release_date":"July 16, 2010",
+            "review":"No review yet"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistmovie",
+        "pk":9,
+        "fields":{
+            "watched":"False",
+            "title":"Dunkirk",
+            "rating": "0",
+            "release_date":"July 20, 2017",
+            "review":"No review yet"
+        }
+    },
+    {
+        "model":"mywatchlist.watchlistmovie",
+        "pk":10,
+        "fields":{
+            "watched":"False",
+            "title":"Oppenheimer",
+            "rating": "0",
+            "release_date":"July 21, 2023",
+            "review":"No review yet"
+        }
+    }
+
+]

@@ -37,7 +37,8 @@ Data delivery diperlukan ketika kita ingin memindahkan data dari satu stack ke s
 6. Menjalankan perintah `python manage.py makemigrations` untuk mempersiapkan migrasi skema model ke dalam database Django lokal
 7. Menjalankan perintah `python manage.py migrate` untuk menerapkan skema model yang telah dibuat ke dalam database Django lokal
 8. Membuat folder bernama fixtures lalu membuat sebuah berkas bernama initial_mywatchlist_data.json yang berisi kode berikut.
-`[
+```
+[
     {
         "model":"mywatchlist.watchlistmovie",
         "pk":1,
@@ -149,37 +150,46 @@ Data delivery diperlukan ketika kita ingin memindahkan data dari satu stack ke s
         }
     }
  
-]`
+]
+```
 9. Menjalankan perintah `python manage.py loaddata initial_mywatchlist_data.json` untuk memasukkan data tersebut ke dalam database Django lokal.
 10. Mengimpor models yang sudah dibuat sebelumnya serta mengimpor HttpResponse dan Serializer ke file views.py dengan menambahkan potongan kode berikut
-`from django.shortcuts import render
+```
+from django.shortcuts import render
 from django.http import HttpResponse
 from django.core import serializers
-from mywatchlist.models import WatchlistMovie`
+from mywatchlist.models import WatchlistMovie
+```
 11. Menambahkan variabel data_watchlist_movie dan context ke file views.py yang berfungsi untuk memanggil fungsi query ke model database dan menyimpan query tersebut ke dalam sebuah variabel.
-`data_watchlist_movie = WatchlistMovie.objects.all()
+```
+data_watchlist_movie = WatchlistMovie.objects.all()
 context = {
     'list_movie': data_watchlist_movie,
     'nama': 'Monica Oktaviona',
     'id': '2106701210'
-}`
+}
+```
 12.  Membuat fungsi show_mywatchlist, show_xml, dan show_json untuk mengakses mywatchlist masing-masing dalam format HTML, XML, dan JSON dengan menambahkan potongan kode berikut
-`def show_mywatchlist(request):
+```
+def show_mywatchlist(request):
     return render(request, "mywatchlist.html", context)
 def show_xml(request): 
     return HttpResponse(serializers.serialize("xml", data_watchlist_movie), content_type="application/xml")
 def show_json(request): 
     return HttpResponse(serializers.serialize("json", data_watchlist_movie), content_type="application/json")
-`
+```
 13. Menambahkan potongan kode berikut untuk mengembalikan data dalam bentuk JSON/XML berdasarkan id nya
-`def show_xml_by_id(request, id): 
+```
+def show_xml_by_id(request, id): 
     data = WatchlistMovie.objects.filter(pk=id)
     return HttpResponse(serializers.serialize("xml", data), content_type="application/xml")
 def show_json_by_id(request, id): 
     data = WatchlistMovie.objects.filter(pk=id)
-    return HttpResponse(serializers.serialize("json", data), content_type="application/json")`
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
+```
 14. Membuat berkas di dalam folder aplikasi mywatchlist bernama urls.py untuk melakukan routing terhadap fungsi views yang telah dibuat sehingga nantinya halaman HTML dapat ditampilkan melalui browser. Isi dari views.py adalah.
-`from django.urls import path
+```
+from django.urls import path
 from mywatchlist.views import show_mywatchlist, show_xml, show_json, show_json_by_id, show_xml_by_id
 
 app_name = 'mywatchlist'
@@ -191,11 +201,13 @@ urlpatterns = [
     path('json/', show_json, name='show_json'),
     path('json/<int:id>', show_json_by_id, name='show_json_by_id'),
     path('xml/<int:id>', show_xml_by_id, name='show_xml_by_id'),
-]`
+]
+```
 15. Mendaftarkan aplikasi mywatchlist ke dalam urls.py yang ada pada folder django-assignment dengan menambahkan potongan kode berikut.
 `path('mywatchlist/', include('mywatchlist.urls')),`
 16. Membuat sebuah folder bernama templates dan membuat sebuah berkas bernama mywatchlist.html di dalamnya yang berisi potongan kode berikut.
-`{% extends 'base.html' %}
+```
+{% extends 'base.html' %}
  
 {% block content %}
 <h1>Tugas 3 PBP/PBD</h1>
@@ -227,7 +239,7 @@ urlpatterns = [
  
  
 {% endblock content %}
-`
+```
 18. Menambahkan potongan kode `release: sh -c 'python manage.py migrate && python manage.py loaddata initial_mywatchlist_data.json'` ke Procfile
 19. Add, push, dan commit ke github
 20. Melakukan deployment ke heroku. Jika menggunakan repositori tuga sebelumnya maka langsung _re-deploy_ saja pada halaman github tidak perlu membuat aplikasi baru di heroku.

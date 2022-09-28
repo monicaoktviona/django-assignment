@@ -5,7 +5,7 @@ Dapat juga diakses melalui:
 3. https://pbp-katalog.herokuapp.com/todolist/register untuk mengakses form registrasi akun
 4. https://pbp-katalog.herokuapp.com/todolist/create-task untuk mengakses form pembuatan task (harus login terlebih dahulu)
 5. https://pbp-katalog.herokuapp.com/todolist/logout berisi mekanisme logout.
-6. <br>
+<br>
 
 ### Apa kegunaan `{% csrf_token %}` pada elemen `<form>`? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen `<form>`?
 `{% csrf_token %}` berfungsi melindungi website dari serangan Cross-site request forgery (CSRF) dengan cara men-_generate_ token unik untuk setiap _session_ pengguna.

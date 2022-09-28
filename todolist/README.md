@@ -64,7 +64,6 @@ class Task(models.Model):
 Setelah itu, menjalankan potongan kode `py manage.py makemigrations` dan `py manage.py migrate`.
 #### 4. Mengimplementasikan form registrasi, login, dan logout agar pengguna dapat menggunakan todolist dengan baik.
 1. Registrasi
-<br>
 Pada `views.py`, _import_ `redirect`, `UserCreationForm`, dan `messages`. Lalu, menambahkan potongan kode berikut agar _form_ dapat di-_generate_ secara otomatis.
 ```
 def register(request):

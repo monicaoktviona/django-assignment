@@ -13,7 +13,7 @@ Apabila tidak ada `{% csrf_token %}` pada elemen `<form>`, Cross-site request fo
 Dalam hal ini, _attacker_ akan lebih mudah untuk melakukan modifikasi pada `<form>` seperti melakukan _request_ POST karena tidak ada pengecekan CSFR token untuk setiap _session_ dan _request_-nya.
 
 ### Apakah kita dapat membuat elemen `<form>` secara manual (tanpa menggunakan generator seperti (`{{ form.as_table }}`)? Jelaskan secara gambaran besar bagaimana cara membuat `<form>` secara manual.
-Elemen `<form>` dapat dibuat secara manual di file html. Sebagai contoh, pada `login.html`, `<form>` dibuat secara manual. Hal tersebut dilakukan dengan memanfaatkan tag `<input>` yang ada di HTML `type` yang disesuaikan dengan kebutuhan, seperti `'text'` untuk textfield. `'password'` untuk field password, `'submit'` untuk button submit, dll.
+Elemen `<form>` dapat dibuat secara manual di file html. Sebagai contoh, pada `login.html`, `<form>` dibuat secara manual. Hal tersebut dilakukan dengan memanfaatkan tag `<input>` yang ada di HTML dengan `type` yang disesuaikan dengan kebutuhan, seperti `'text'` untuk textfield. `'password'` untuk field password, `'submit'` untuk button submit, dll.
 Untuk `<form>` pada halaman login, dibuat dengan potongan kode berikut.
 ```
 <form method="POST" action="">

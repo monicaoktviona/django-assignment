@@ -190,7 +190,7 @@ def logout_user(request):
     return response
 ```
 #### 5. Membuat halaman form untuk pembuatan task. Data yang perlu dimasukkan pengguna hanyalah judul task dan deskripsi task.
-Membuat file `forms.py` berisi _class_ `TaskForm` dengan model`Task` dan _fields_ `titl`e dan `description` saja karena pada _form_ penambahan _task_ nanti, pengguna hanya perlu memasukkan_ title_ dan _description_-nya saja.
+Membuat file `forms.py` berisi _class_ `TaskForm` dengan model`Task` dan _fields_ `titl`e dan `description` saja karena pada _form_ penambahan _task_ nanti, pengguna hanya perlu memasukkan _title_ dan _description_-nya saja.
 ```
 from django import forms
 from .models import Task
@@ -266,8 +266,8 @@ urlpatterns = [
 Menjalankan perintah `git add`, `git push`, dan `git commit`. Aplikasi akan ter-_deploy_ dengan sendirinya karena telah di-_deploy_ pada tugas sebelumnya.
 
 ### 7. Membuat dua akun pengguna dan tiga dummy data menggunakan model Task pada akun masing-masing di situs web Heroku.
-Mengakses https://pbp-katalog.herokuapp.com/todolist, lalu mendaftarkan dua akun berikut.
-Username 1: user1
-Password 1: D:Hgwgsw_9M5q7h
-Username 2: user2
+Mengakses https://pbp-katalog.herokuapp.com/todolist, lalu mendaftarkan dua akun berikut. <br>
+Username 1: user1 <br>
+Password 1: D:Hgwgsw_9M5q7h <br>
+Username 2: user2 <br>
 Password 2: B-YVz8Z69k!tMmQ

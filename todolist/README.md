@@ -5,14 +5,12 @@ Dapat juga diakses melalui:
 3. https://pbp-katalog.herokuapp.com/todolist/register untuk mengakses form registrasi akun
 4. https://pbp-katalog.herokuapp.com/todolist/create-task untuk mengakses form pembuatan task (harus login terlebih dahulu)
 5. https://pbp-katalog.herokuapp.com/todolist/logout berisi mekanisme logout.
-<br>
 
 ### Apa kegunaan `{% csrf_token %}` pada elemen `<form>`? Apa yang terjadi apabila tidak ada potongan kode tersebut pada elemen `<form>`?
 `{% csrf_token %}` berfungsi melindungi website dari serangan Cross-site request forgery (CSRF) dengan cara men-_generate_ token unik untuk setiap _session_ pengguna.
 Setiap pengguna mengirimkan _request_, CSFR token juga akan dikirimkan. Jika CSFR tokennya tidak valid (CSFR token pada _session_ dan _request_-nya tidak sama), maka _request_ tidak akan di-_execute_.
 Apabila tidak ada `{% csrf_token %}` pada elemen `<form>`, Cross-site request forgery (CSRF) akan lebih rentan terjadi. 
 Dalam hal ini, _attacker_ akan lebih mudah untuk melakukan modifikasi pada `<form>` seperti melakukan _request_ POST karena tidak ada pengecekan CSFR token untuk setiap _session_ dan _request_-nya.
-<br>
 
 ### Apakah kita dapat membuat elemen `<form>` secara manual (tanpa menggunakan generator seperti (`{{ form.as_table }}`)? Jelaskan secara gambaran besar bagaimana cara membuat `<form>` secara manual.
 Elemen `<form>` dapat dibuat secara manual di file html. Sebagai contoh, pada `login.html`, `<form>` dibuat secara manual. Hal tersebut dilakukan dengan memanfaatkan tag `<input>` yang ada di HTML `type` yang disesuaikan dengan kebutuhan, seperti `'text'` untuk textfield. `'password'` untuk field password, `'submit'` untuk button submit, dll.

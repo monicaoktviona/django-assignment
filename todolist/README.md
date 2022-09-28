@@ -35,8 +35,8 @@ Untuk `<form>` pada halaman login, dibuat dengan potongan kode berikut.
             </tr>
         </table>
     </form>
-  ```
-    <br>
+```
+
 ### Jelaskan proses alur data dari submisi yang dilakukan oleh pengguna melalui HTML form, penyimpanan data pada database, hingga munculnya data yang telah disimpan pada template HTML.
 Ketika pengguna melakukan submisi form, maka akan dibuat _instance_ dari TaskForm yang ada di `forms.py` sesuai dengan input yang dimasukkan pengguna. 
 Lalu akan terjadi pengecekan, apabila form tersebut valid, maka semua attribut yang ada pada model akan disesuaikan dengan input pengguna. Data tersebut disimpan ke databse saat

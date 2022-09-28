@@ -63,7 +63,7 @@ class Task(models.Model):
 `ForeignKey` digunakan untuk membuat _many-to-one_ _relationship_ (dalam kasus ini, seorang user dapat memiliki banyak task).
 Setelah itu, menjalankan potongan kode `py manage.py makemigrations` dan `py manage.py migrate`.
 #### 4. Mengimplementasikan form registrasi, login, dan logout agar pengguna dapat menggunakan todolist dengan baik.
-1. Registrasi
+##### Registrasi
 Pada `views.py`, _import_ `redirect`, `UserCreationForm`, dan `messages`. Lalu, menambahkan potongan kode berikut agar _form_ dapat di-_generate_ secara otomatis.
 ```
 def register(request):
@@ -116,7 +116,7 @@ Membuat file `register.html` pada folder `templates` dengan potongan kode beriku
 
 {% endblock content %}
 ```
-2. Login
+##### Login
 Pada `views.py`, _import_ `authenticate` dan `login`. Lalu, menambahkan potongan kode berikut untuk mengautentikasi pengguna yang akan login.
 ```
 def login_user(request):
@@ -181,7 +181,7 @@ Membuat file `login.html` pada folder `templates` dengan potongan kode berikut.
 
 {% endblock content %}
 ```
-3. Logout
+##### Logout
 Pada `views.py`, _import_ `logout`. Lalu menambahkan potongan kode beikut sebagai mekanisme _logout_.
 ```
 def logout_user(request):

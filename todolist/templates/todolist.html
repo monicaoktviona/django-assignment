@@ -9,6 +9,7 @@
             body {
                 margin: 0;
                 text-align: center;
+                margin-bottom: 8vh;
             }
         
             .btn-logout {
@@ -30,9 +31,10 @@
             .btn-logout a:hover {
                 color: black;
             }
+
             h1 {
                 font-size: 30px;
-                margin-top: 5vh;
+                margin-top: 80px;
                 margin-bottom: 20px;
             }
         
@@ -84,14 +86,23 @@
 
             .navbar-text {
                 margin-left: 3vw;
+                float: left;
             }
 
+            .navbar {
+                background-color: rgb(26, 24, 24);
+                position: fixed; 
+                top: 0; 
+                width: 100%; 
+                overflow: hidden;
+                z-index: 2;
+            }
         </style>
     
     </head>
     <body>
         {% block content %}
-        <nav class="navbar" style="background-color:black;opacity:0.8;">
+        <nav class="navbar">
             <div class="container-fluid">
                 <b class="navbar-text" style="color:white;font-size: 18px;">Hello, {{user}}!</b>
                 <button class="btn btn-logout"><a href="{% url 'todolist:logout' %}">Logout</a></button>

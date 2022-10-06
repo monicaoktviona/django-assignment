@@ -1,34 +1,79 @@
-{% extends 'base.html' %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Login</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <style>
+            body {
+                text-align: center;
+                margin: a;
+            }
+        
+            .registrasi {
+                border: 1px solid lightgray;
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 4vh;
+                padding: 20px 5px;
+                width: 60vw;
+                height: 100%;
+                border-radius: 25px;
+                display: block;
+            }
+        
+            h1 {
+                margin-bottom: 10px;
+            }
+            
+            form {
+                margin: auto;
+                width: 50%;
+            }
+        
+            .btn {
+                background-color: #0583d2;
+                color: white;
+                margin-top: 15px;
+                margin-bottom: 5px;
+            }
+        
+            .btn:hover {
+                background-color: #0583d2;
+                opacity: 0.8;
+                color: white;
+                transition-duration: 0.3s;
+            }
+        </style>
+    </head>
+    <body>
+        {% block content %}  
 
-{% block meta %}
-<title>Registrasi Akun</title>
-{% endblock meta %}
+        <div class = "registrasi">
+            <h1>Formulir Registrasi</h1>  
+            <form method="POST" >  
+                {% csrf_token %}  
+                <table>  
+                    {{ form.as_table }}  
+                </table> 
+                <input class= "btn submit-btn" type="submit" name="submit" value="Daftar"/> 
+            </form>
 
-{% block content %}  
 
-<div class = "login">
-    
-    <h1>Formulir Registrasi</h1>  
+            {% if messages %}  
+                <ul>   
+                    {% for message in messages %}  
+                        <li>{{ message }}</li>  
+                        {% endfor %}  
+                </ul>   
+            {% endif %}
 
-        <form method="POST" >  
-            {% csrf_token %}  
-            <table>  
-                {{ form.as_table }}  
-                <tr>  
-                    <td></td>
-                    <td><input type="submit" name="submit" value="Daftar"/></td>  
-                </tr>  
-            </table>  
-        </form>
+        </div>  
 
-    {% if messages %}  
-        <ul>   
-            {% for message in messages %}  
-                <li>{{ message }}</li>  
-                {% endfor %}  
-        </ul>   
-    {% endif %}
+        {% endblock content %}
+    </body>
+</html>
 
-</div>  
-
-{% endblock content %}

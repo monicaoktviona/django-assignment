@@ -1,25 +1,110 @@
-{% extends 'base.html' %}
-
-{% block content %}
-<h5>User: </h5>
-<p>{{user}}</p>
-
-<table>
-    <tr>
-    <th>Date</th>
-    <th>Title</th>
-    <th>Description</th>
-    </tr>
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>To-DO List</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <style>
+            body {
+                margin: 0;
+                text-align: center;
+            }
+        
+            .btn-logout {
+                background-color: black;
+                opacity: 0.8;
+                border: 1px solid white;
+            }
+        
+            .btn-logout a {
+                color: white;
+            }
+        
+            .btn-logout:hover {
+                background-color: white;
+            }
+            
+            .btn-logout a:hover {
+                color: black;
+            }
+            h1 {
+                font-size: 30px;
+                margin-top: 5vh;
+                margin-bottom: 20px;
+            }
+        
+            a {
+                text-decoration: none;
+            }
+        
+            .btn-new-task{
+                background-color: #0583d2;
+                margin-top: 20px;
+            }
+        
+            .txt {
+                color: white;
+            }
+        
+            .txt:hover {
+                color: white;
+            }
+        
+            .btn-new-task:hover {
+                background-color: #0583d2;
+                opacity: 0.8;
+                color: white;
+                transition-duration: 0.3s;
+            }
+        
+            .card-date {
+                color: gray;
+                font-size: 15px;
+            }
+        
+            .card {
+                padding: 10px;
+                width: 100%;
+                border-radius: 15px;
+            }
+        
+            .card:hover {
+                border: 1px solid #0583d2;
+            }
+        
+            .container {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                grid-gap: 20px;
+                justify-content: center;
+            }
+        </style>
     
-    {% for task in task_list %}
-        <tr>
-            <th>{{task.date}}</th>
-            <th>{{task.title}}</th>
-            <th>{{task.description}}</th>
-        </tr>
-    {% endfor %}
-</table>
-<button><a href="{% url 'todolist:create-task' %}">Add new task</a></button>
-<button><a href="{% url 'todolist:logout' %}">Logout</a></button>
+    </head>
+    <body>
+        {% block content %}
+        <nav class="navbar" style="background-color:black;opacity:0.8;">
+            <div class="container-fluid">
+                <b style="color:white;font-size: 18px;">Hello, {{user}}!</b>
+                <button class="btn btn-logout"><a href="{% url 'todolist:logout' %}">Logout</a></button>
+            </div>
+        </nav>
+        <h1>{{user}}'s To-Do List</h1>
 
-{% endblock content %}
+        <div class="container">
+            {% for task in task_list %}
+                <div class="card col-sm" >
+                    <h5 class="card-title">{{task.title}}</h5>
+                    <p class="card-description">{{task.description}}</p>
+                    <p class="card-date">Added on {{task.date}}</p>
+                </div>
+            {% endfor %}
+        </div>
+
+        <button class="btn btn-new-task"><a class="txt new-task" href="{% url 'todolist:create-task' %}">Add new task</a></button>
+        
+
+        {% endblock content %}
+    </body>
+</html>

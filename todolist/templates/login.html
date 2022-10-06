@@ -1,45 +1,90 @@
-{% extends 'base.html' %}
-
-{% block meta %}
-<title>Login</title>
-{% endblock meta %}
-
-{% block content %}
-
-<div class = "login">
-
-    <h1>Login</h1>
-
-    <form method="POST" action="">
-        {% csrf_token %}
-        <table>
-            <tr>
-                <td>Username: </td>
-                <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
-            </tr>
-                    
-            <tr>
-                <td>Password: </td>
-                <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
-            </tr>
-
-            <tr>
-                <td></td>
-                <td><input class="btn login_btn" type="submit" value="Login"></td>
-            </tr>
-        </table>
-    </form>
-
-    {% if messages %}
-        <ul>
-            {% for message in messages %}
-                <li>{{ message }}</li>
-            {% endfor %}
-        </ul>
-    {% endif %}     
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Login</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+        <style>
+            body {
+                text-align: center;
+                margin: 0;
+            }
         
-    Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
+            .container {
+                border: 1px solid lightgray;
+                margin: auto;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                margin-top: 20vh;
+                width: 40vw;
+                height: 60%;
+                padding: 10px;
+                border-radius: 25px;
+                display: block;
+            }
+        
+            table {
+                display: flex;
+                justify-content: center;
+                margin: 30px;
+            }
+        
+            .btn {
+                border: 1px solid lightgray;
+                margin-top: 10px;
+                margin-bottom: 0px;
+            }
+        
+            .btn:hover {
+                background-color: #0583d2;
+                color: white;
+                opacity: 0.8;
+                transition-duration: 0.3s;
+            }
+        
+        </style>
+    </head>
+    <body>
+        {% block content %}
+        <div class="container">
+            <div class = "login">
+                <h1>Login</h1>
 
-</div>
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    <table>
+                        <tr><td style="text-align: left";>Username: </td></tr> 
+                        <tr>
+                            
+                            <td><input type="text" name="username" placeholder="Username" class="form-control"></td>
+                        </tr>
+                        <tr><td style="text-align: left";>Password: </td></tr> 
+                        <tr>   
+                        <tr>
+                            <td><input type="password" name="password" placeholder="Password" class="form-control"></td>
+                        </tr>
 
-{% endblock content %}
+                        <tr>
+                            <td><input class="btn login_btn" type="submit" value="Login"></td>
+                        </tr>
+                    </table>
+                </form>
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <p>{{ message }}</p>
+                    {% endfor %}
+                {% endif %}     
+                    
+                Belum mempunyai akun? <a href="{% url 'todolist:register' %}">Buat Akun</a>
+
+            </div>
+        </div>
+
+
+    {% endblock content %}
+    </body>
+</html>
+

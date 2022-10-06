@@ -15,10 +15,12 @@
                 background-color: black;
                 opacity: 0.8;
                 border: 1px solid white;
+                margin-right: 3vw;
             }
         
             .btn-logout a {
                 color: white;
+
             }
         
             .btn-logout:hover {
@@ -79,6 +81,11 @@
                 grid-gap: 20px;
                 justify-content: center;
             }
+
+            .navbar-text {
+                margin-left: 3vw;
+            }
+
         </style>
     
     </head>
@@ -86,7 +93,7 @@
         {% block content %}
         <nav class="navbar" style="background-color:black;opacity:0.8;">
             <div class="container-fluid">
-                <b style="color:white;font-size: 18px;">Hello, {{user}}!</b>
+                <b class="navbar-text" style="color:white;font-size: 18px;">Hello, {{user}}!</b>
                 <button class="btn btn-logout"><a href="{% url 'todolist:logout' %}">Logout</a></button>
             </div>
         </nav>

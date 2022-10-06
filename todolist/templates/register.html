@@ -18,8 +18,9 @@
                 justify-content: center;
                 align-items: center;
                 margin-top: 4vh;
-                padding: 20px 5px;
+                padding: 2vh 1vw;
                 width: 60vw;
+                min-width: 500px;
                 height: 100%;
                 border-radius: 25px;
                 display: block;
@@ -32,6 +33,11 @@
             form {
                 margin: auto;
                 width: 50%;
+                min-width: 200px;
+            }
+
+            table {
+                text-align: left;
             }
         
             .btn {
@@ -52,26 +58,28 @@
     <body>
         {% block content %}  
 
-        <div class = "registrasi">
-            <h1>Formulir Registrasi</h1>  
-            <form method="POST" >  
-                {% csrf_token %}  
-                <table>  
-                    {{ form.as_table }}  
-                </table> 
-                <input class= "btn submit-btn" type="submit" name="submit" value="Daftar"/> 
-            </form>
+        <div class="container">
+            <div class = "registrasi">
+                <h1>Formulir Registrasi</h1>  
+                <form method="POST" >  
+                    {% csrf_token %}  
+                    <table>  
+                        {{ form.as_table }}  
+                    </table> 
+                    <input style="text-align: center;"class= "btn submit-btn" type="submit" name="submit" value="Daftar"/> 
+                </form>
 
 
-            {% if messages %}  
-                <ul>   
-                    {% for message in messages %}  
-                        <li>{{ message }}</li>  
-                        {% endfor %}  
-                </ul>   
-            {% endif %}
+                {% if messages %}  
+                    <ul>   
+                        {% for message in messages %}  
+                            <li>{{ message }}</li>  
+                            {% endfor %}  
+                    </ul>   
+                {% endif %}
 
-        </div>  
+            </div>  
+        </div>
 
         {% endblock content %}
     </body>

@@ -1,4 +1,3 @@
-from turtle import title
 from django.shortcuts import render
 from todolist.models import Task
 from todolist.forms import TaskForm
@@ -9,8 +8,8 @@ from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from .forms import TaskForm
-from datetime import date, datetime
-from django.http import HttpResponseNotFound, HttpResponseRedirect, JsonResponse
+from datetime import date
+from django.http import HttpResponseRedirect, JsonResponse
 from django.urls import reverse
 from django.http import HttpResponse
 from django.core import serializers

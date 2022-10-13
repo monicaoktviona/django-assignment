@@ -1,3 +1,4 @@
+from turtle import title
 from django.shortcuts import render
 from todolist.models import Task
 from todolist.forms import TaskForm
@@ -9,18 +10,35 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
 from .forms import TaskForm
 from datetime import date, datetime
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseNotFound, HttpResponseRedirect, JsonResponse
 from django.urls import reverse
+from django.http import HttpResponse
+from django.core import serializers
+from django.views.decorators.csrf import csrf_exempt
+
 
 # Views
 @login_required(login_url='/todolist/login/')
 def show_todolist(request):
-    task_data = Task.objects.filter(user=request.user)
-    context = {
-        'task_list': task_data,
-        'user': request.user,
-    }
-    return render(request, "todolist.html", context)
+    return render(request, "todolist.html")
+
+@login_required(login_url='/todolist/login/')
+def get_todolist_json(request):
+    todolist_item = Task.objects.filter(user=request.user)
+    return HttpResponse(serializers.serialize('json', todolist_item))
+
+@csrf_exempt
+def add_task_async(request):
+    form = TaskForm()
+    if request.method == "POST":
+        form = TaskForm(request.POST)
+        #Get the posted form
+        if form.is_valid():
+            task = form.save(commit=False)
+            task.user = request.user
+            task.date = date.today()
+            task.save()
+    return JsonResponse({"success": "Task is successfully added"}) 
 
 @login_required(login_url='/todolist/login/')
 def create_task(request):
@@ -36,6 +54,8 @@ def create_task(request):
         return redirect("todolist:show_todolist")
     context = {'form':form}
     return render(request, "create-task.html", context)
+
+
 
 # Form registrasi
 def register(request):
